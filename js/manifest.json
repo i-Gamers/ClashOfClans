@@ -1,0 +1,21 @@
+{
+  "name": "Dark SL",
+  "short_name": "Dark SL",
+  "description": "A website for Dark SL features and tools",
+  "start_url": "https://imaadh755.github.io/coc/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00ffcc",
+  "icons": [
+    {
+      "src": "UserData/Logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "UserData/Logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

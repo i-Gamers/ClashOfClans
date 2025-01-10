@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash of Clans Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212; 
+            color: #E1E1E1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #1D1D1D; 
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header h1 {
+            color: #00FF9D; 
+            font-size: 3.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px #00FF9D;
+        }
+
+        header p {
+            color: #B0B0B0; 
+            font-size: 1.1rem;
+            margin-top: 10px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 50px;
+            gap: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .card {
+            background: #1F1F1F; 
+            border: 2px solid #00FF9D; 
+            border-radius: 12px;
+            width: 320px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.8);
+            background: #1A1A1A; 
+        }
+
+        .card h2 {
+            background: #121212; 
+            color: #00FF9D; 
+            font-size: 1.8rem;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            transition: background 0.3s ease, color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .card:hover h2 {
+            background: #00FF9D; 
+            color: #121212; 
+        }
+
+        .card p {
+            padding: 20px;
+            font-size: 1rem;
+            color: #B0B0B0; 
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        .card a {
+            display: block;
+            background: #00FF9D; 
+            color: #121212; 
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .card a:hover {
+            background: #00CC7F; 
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #121212; 
+            color: #B0B0B0; 
+            padding: 20px 0;
+            text-align: center;
+            border-top: 3px solid #00FF9D; 
+            font-size: 1rem;
+            position: relative;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Clash of Clans Admin Dashboard</h1>
+    <p>Manage Your Clan Website</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Config Page</h2>
+        <p>Edit and update configurations effortlessly.</p>
+        <a href="config.html" target="_blank"><i class="fas fa-cogs"></i> Open Config</a>
+    </div>
+    <div class="card">
+        <h2>Admin Page</h2>
+        <p>Manage Town Hall videos and details from here.</p>
+        <a href="strategies-admin.html" target="_blank"><i class="fas fa-tools"></i> Access Admin</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Clash of Clans Admin Dashboard. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

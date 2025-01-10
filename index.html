@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta id="maintenance-status" content="no">
+</head>
+<body>
+
+<script>
+    window.onload = function () {
+        const maintenanceStatus = document.getElementById('maintenance-status').getAttribute('content');
+
+        if (maintenanceStatus === 'yes') {
+            window.location.href = "maintenance.html";
+        } else {
+            window.location.href = "home.html";
+        }
+    };
+	
+</script>
+
+<script src="https://imoaproductions.neocities.org/validate-license.json" defer></script>
+
+</body>
+</html>

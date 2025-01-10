@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Attack Strategies",
+        "image": "img/strategies.png",
+        "link": "strategies.html",
+        "target": "iframe"
+    },
+    {
+        "name": "Clan Rules",
+        "image": "img/Rules.jpeg",
+        "link": "Clan Rules.html",
+        "target": "iframe"
+    },
+    {
+        "name": "Base Layouts",
+        "image": "img/Base.jpeg",
+        "link": "https://www.clashofclans-layouts.com",
+        "target": "iframe"
+    },
+    {
+        "name": "Clan Members",
+        "image": "img/members.jpeg",
+        "link": "https://www.warreport.app/#/clans/{{clanId}}",
+        "target": "iframe"
+    },
+    {
+        "name": "War Status",
+        "image": "img/War.jpeg",
+        "link": "https://www.warreport.app/#/clans/{{clanId}}/currentwar",
+        "target": "iframe"
+    },
+    {
+        "name": "War League",
+        "image": "img/CWL.jpeg",
+        "link": "https://www.warreport.app/#/clans/{{clanId}}/currentwar/warleague",
+        "target": "iframe"
+    },
+    {
+        "name": "supercell Store",
+        "image": "img/Gifts.jpeg",
+        "link": "https://store.supercell.com/clashofclans",
+        "target": "direct"
+    },
+    {
+        "name": "Announcements",
+        "image": "img/announcement.jpg",
+        "link": "https://supercell.com/en/games/clashofclans/blog/",
+        "target": "iframe"
+    },
+    {
+        "name": "Tips!",
+        "image": "img/tips.png",
+        "link": "Tips!.html",
+        "target": "iframe"
+    },
+    {
+        "name": "Player Last Active",
+        "image": "img/last-active.jpeg",
+        "link": "Player Last Active.html",
+        "target": "iframe"
+    },
+    {
+        "name": "War Troops Calculator",
+        "image": "img/Calculator.png",
+        "link": "War Troops Calculator.html",
+        "target": "iframe"
+    },
+    {
+        "name": "{{whatsapp.name}}",
+        "image": "img/DarkSL.png",
+        "link": "{{whatsapp.link}}",
+        "target": "direct"
+    }
+]

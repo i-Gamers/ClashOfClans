@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark SL</title>
+    <link rel="icon" href="UserData/Logo.png">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+        
+    <link rel="manifest" href="js/manifest.json">
+    <meta name="theme-color" content="#00ffcc">
+</head>
+<body>
+
+
+<div class="hero" id="hero">
+    <div>
+        <h1>Welcome to Dark SL</h1>
+        <p>Your Ultimate Clan Experience</p>
+    </div>
+</div>
+
+    
+    <div class="logo-container">
+        <img src="UserData/Logo.png" alt="" class="logo">
+    </div>
+
+    
+    <div class="view-toggle">
+        <span class="toggle-text">Dark SL <br> Developed by IMaadh</span>
+    </div>
+    
+<div id="install-prompt" class="install-prompt hidden">
+    <div class="prompt-container">
+        <img src="UserData/Logo.png" alt="Dark SL Logo" class="prompt-logo">
+        <p class="prompt-text">Add Dark SL to your Home Screen for a better experience!</p>
+        <button id="install-button" class="install-button">Add to Home Screen</button>
+        <button id="close-button" class="close-button">&times;</button>
+    </div>
+</div>
+
+
+<div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search categories..." />
+</div>
+
+    <div class="container grid-view" id="categories-container"> </div>
+
+    <script>
+        /**
+         * Opens a new tab with an iframe displaying the provided URL
+         * @param {string} url - The URL to load in the iframe
+         */
+        function openIframePage(url) {
+            const newTab = window.open();
+            newTab.document.write(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Content Viewer</title>
+                    <style>
+                        body {
+                            margin: 0;
+                            padding: 0;
+                            overflow: hidden;
+                        }
+                        iframe {
+                            width: 100vw;
+                            height: 100vh;
+                            border: none;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <iframe src="${url}" allowfullscreen></iframe>
+                </body>
+                </html>
+            `);
+        }
+
+        /**
+         * Opens a URL directly in a new tab without iframe
+         * @param {string} url - The URL to open directly
+         */
+        function openDirectPage(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+    
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('scipt/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registered:', registration);
+                })
+                .catch(error => {
+                    console.log('Service Worker registration failed:', error);
+                });
+        });
+    }
+</script>
+
+    <script>
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+    document.getElementById('install-prompt').classList.remove('hidden');
+});
+
+document.getElementById('install-button').addEventListener('click', () => {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the install prompt');
+            } else {
+                console.log('User dismissed the install prompt');
+            }
+            deferredPrompt = null;
+        });
+    }
+    document.getElementById('install-prompt').classList.add('hidden');
+});
+
+document.getElementById('close-button').addEventListener('click', () => {
+    document.getElementById('install-prompt').classList.add('hidden');
+});
+</script>
+
+<script>
+// Search functionality
+document.getElementById('search-input').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const categories = document.querySelectorAll('.category');
+
+    categories.forEach(category => {
+        const categoryText = category.querySelector('p').textContent.toLowerCase();
+        if (categoryText.includes(query)) {
+            category.style.display = 'block';
+        } else {
+            category.style.display = 'none';
+        }
+    });
+});
+</script>
+
+<script>
+    // Hide Hero Section after 5 seconds
+    window.onload = function () {
+        setTimeout(() => {
+            document.getElementById('hero').classList.add('hidden');
+        }, 3000);
+    };
+</script>
+
+<script>
+// Fetch configuration and categories
+Promise.all([
+    fetch('config.json').then(response => response.json()), // Fetch config
+    fetch('js/categories.json').then(response => response.json()) // Fetch categories
+])
+    .then(([config, categories]) => {
+        const clanId = config.clanId; // Get clan ID from config
+		const whatsappName = config.whatsapp.name; // Get WhatsApp name from config
+        const whatsappLink = config.whatsapp.link; // Get WhatsApp link from config
+        
+		const container = document.getElementById('categories-container');
+        container.innerHTML = ''; // Clear any existing content
+
+        // Process and render categories
+        categories.forEach(category => {
+            // Replace placeholder with actual clan ID
+            const link = category.link
+			.replace('{{clanId}}', clanId) // Replace clanId placeholder
+            .replace('{{whatsapp.name}}', whatsappName) // Replace WhatsApp name placeholder
+            .replace('{{whatsapp.link}}', whatsappLink); // Replace WhatsApp link placeholder
+
+            const categoryDiv = document.createElement('div');
+            categoryDiv.classList.add('category');
+            categoryDiv.onclick = () => {
+                if (category.target === 'iframe') {
+                    openIframePage(link);
+                } else {
+                    openDirectPage(link);
+                }
+            };
+            categoryDiv.innerHTML = `
+                <img src="${category.image}" alt="${category.name}">
+                <p>${category.name}</p>
+            `;
+            container.appendChild(categoryDiv);
+        });
+    })
+    .catch(error => console.error('Error loading data:', error));
+</script>
+
+</body>
+</html>

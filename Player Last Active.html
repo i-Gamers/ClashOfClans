@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash of Clans - Last Active Time</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator-container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: left;
+        }
+        h1 {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .spacer {
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.4em;
+            color: #4CAF50;
+            text-align: center;
+        }
+        .time {
+            color: red;
+        }
+        .accuracy {
+            font-size: 0.9em;
+            color: #fff;
+            text-align: center;
+            margin-top: 5px;
+        }
+        .credit {
+            margin-top: 20px;
+            text-align: center; 
+            font-size: 1.1em;
+            color: #fff;
+            padding: 5px;
+            border: 1px solid #4CAF50; 
+            border-radius: 8px;
+            background-color: rgba(76, 175, 80, 0.2); 
+        }
+        img {
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        @media (max-width: 500px) {
+            .calculator-container {
+                padding: 15px;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-container">
+        <img src="img/coc" alt="Clash of Clans Logo">
+        <h1>Clash Of Clans</h1>
+        <h2>Check Last Active Time</h2>
+        
+        <div class="spacer"></div>
+
+        <div class="input-group">
+            <label for="rph">Production Rate per Hour</label>
+            <input type="number" id="rph" placeholder="Enter Collector Production rate per hour"> 
+        </div>
+
+        <div class="input-group">
+            <label for="current">Current Collector Value</label>
+            <input type="number" id="current" placeholder="Enter current collector value">
+        </div>
+
+        <div class="button-group">
+            <button class="btn" onclick="calculateTime()">Check Now</button>
+            <button class="btn" onclick="clearFields()">Clear Data</button>
+        </div>
+
+        <div class="result" id="result"></div>
+        <div class="accuracy">Note: The results may not be 100% accurate.</div>
+        <div class="credit">Developed by IMaadh</div> 
+    </div>
+
+    <script>
+        function calculateTime() {
+            var rph = document.getElementById('rph').value;
+            var current = document.getElementById('current').value;
+
+            if (rph && current) {
+                var timeElapsed = current / rph;
+                var minutes = timeElapsed * 60;
+                var resultText = '';
+                
+                if (minutes < 60) {
+                    resultText = `The player was online <span class="time">${Math.round(minutes)} minutes</span> ago.`;
+                } else {
+                    var hours = Math.floor(minutes / 60);
+                    var remainingMinutes = Math.round(minutes % 60);
+                    resultText = `The player was online <span class="time">${hours}h ${remainingMinutes}min</span> ago.`;
+                }
+
+                document.getElementById('result').innerHTML = resultText;
+            } else {
+                document.getElementById('result').innerHTML = "Please enter both the production rate and current collector value.";
+            }
+        }
+
+        function clearFields() {
+            document.getElementById('rph').value = '';
+            document.getElementById('current').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+
+</body>
+</html>

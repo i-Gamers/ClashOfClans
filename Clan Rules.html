@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clan Rules - Modern Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+            color: #fff;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle, #000, #0d0d0d);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            color: #00ffcc;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #ccc;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            font-size: 1rem;
+            color: #00ffcc;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .rules-section {
+            padding: 40px 20px;
+            background: #1a1a1a;
+            text-align: center;
+        }
+
+        .rules-section h2 {
+            color: #00ffcc;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .rules-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+
+        .rule-card {
+            background: linear-gradient(145deg, #1f1f1f, #292929);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #fff;
+        }
+
+        .rule-card h3 {
+            color: #00ffcc;
+            margin-bottom: 15px;
+        }
+
+        .rule-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .rule-card li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        .rule-card li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: #00ffcc;
+            font-size: 1.2em;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #0d0d0d;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="hero" id="hero">
+        <h1>Welcome to the Dark SL</h1>
+        <p>Clan Rule Book</p>
+        <div class="scroll-down" id="scrollDown">Scroll Down</div>
+    </div>
+
+    
+    <div class="rules-section" id="rules">
+        <h2>Clan Rules</h2>
+        <div class="rules-container" id="rulesContainer"></div>
+    </div>
+
+    
+    <div class="footer">
+        &copy; 2025 Dark SL. All rights reserved.
+    </div>
+
+    <script>
+        const rulesContainer = document.getElementById('rulesContainer');
+
+        // Load rules from JSON file
+        fetch('UserData/rules.json')
+            .then(response => response.json())
+            .then(data => {
+                data.rules.forEach(ruleSection => {
+                    const ruleCard = document.createElement('div');
+                    ruleCard.classList.add('rule-card');
+
+                    const ruleTitle = document.createElement('h3');
+                    ruleTitle.textContent = ruleSection.title;
+                    ruleCard.appendChild(ruleTitle);
+
+                    const ruleList = document.createElement('ul');
+                    ruleSection.items.forEach(item => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = item;
+                        ruleList.appendChild(listItem);
+                    });
+
+                    ruleCard.appendChild(ruleList);
+                    rulesContainer.appendChild(ruleCard);
+                });
+            })
+            .catch(error => console.error('Error loading rules:', error));
+
+        // Scroll behavior
+        document.getElementById('scrollDown').addEventListener('click', () => {
+            document.getElementById('rules').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

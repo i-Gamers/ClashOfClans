@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash of Clans Attack Strategies</title>
+    <link rel="stylesheet" href="css/strategies.css">
+</head>
+<body>
+    
+    <header>
+        <h1>Clash of Clans Attack Strategies</h1>
+        <p>Select a Town Hall to view attack strategies</p>
+    </header>
+
+    
+    <div class="container">
+	
+		<div class="category" onclick="loadVideos('all')">
+			<img src="img/Th-all.png" alt="Show All">
+		</div>
+        <div class="category" onclick="loadVideos('th10')">
+            <img src="img/th10.png" alt="Town Hall 10">
+        </div>
+        <div class="category" onclick="loadVideos('th11')">
+            <img src="img/th11.png" alt="Town Hall 11">
+        </div>
+        <div class="category" onclick="loadVideos('th12')">
+            <img src="img/th12.png" alt="Town Hall 12">
+        </div>
+        <div class="category" onclick="loadVideos('th13')">
+            <img src="img/th13.png" alt="Town Hall 13">
+        </div>
+        <div class="category" onclick="loadVideos('th14')">
+            <img src="img/th14.png" alt="Town Hall 14">
+        </div>
+        <div class="category" onclick="loadVideos('th15')">
+            <img src="img/th15.png" alt="Town Hall 15">
+        </div>
+        <div class="category" onclick="loadVideos('th16')">
+            <img src="img/th16.png" alt="Town Hall 16">
+        </div>
+        <div class="category" onclick="loadVideos('th17')">
+            <img src="img/th17.png" alt="Town Hall 17">
+        </div>
+    </div>
+
+    
+    <div id="videos-container" class="video-container"></div>
+
+<script>
+    let videoData = {};
+
+    // Fetch video data from JSON
+    fetch('https://imaadh755.github.io/coc/json/strategies.json')
+        .then(response => response.json())
+        .then(data => {
+            videoData = data; // Load data into the `videoData` variable
+            loadVideos('all'); // Show all videos by default on page load
+        })
+        .catch(error => console.error('Error loading JSON:', error));
+
+    // Function to load videos for a specific Town Hall or all videos
+    function loadVideos(townhall) {
+        const videosContainer = document.getElementById("videos-container");
+        videosContainer.innerHTML = ""; // Clear previous content
+
+        let videos = [];
+        if (townhall === 'all') {
+            // Combine all videos from all Town Halls
+            for (const th in videoData) {
+                videos = videos.concat(videoData[th]);
+            }
+        } else {
+            // Get videos for the selected Town Hall
+            videos = videoData[townhall] || [];
+        }
+
+        if (videos.length > 0) {
+            videos.forEach(video => {
+                // Create video card
+                const videoCard = document.createElement("div");
+                videoCard.className = "video-card";
+
+                // Add video iframe
+                const iframe = document.createElement("iframe");
+                iframe.src = video.videoUrl;
+                iframe.title = video.title;
+                iframe.allowFullscreen = true;
+                videoCard.appendChild(iframe);
+
+                // Add title
+                const title = document.createElement("h3");
+                title.textContent = video.title;
+                videoCard.appendChild(title);
+
+                // Add army links
+                const armyLinksDiv = document.createElement("div");
+                armyLinksDiv.className = "army-links";
+                video.armyLinks.forEach(link => {
+                    const a = document.createElement("a");
+                    a.href = link.url;
+                    a.target = "_blank";
+                    a.textContent = link.text;
+                    armyLinksDiv.appendChild(a);
+                });
+                videoCard.appendChild(armyLinksDiv);
+
+                // Append to container
+                videosContainer.appendChild(videoCard);
+            });
+        } else {
+            videosContainer.innerHTML = "<p>No videos available for this Town Hall.</p>";
+        }
+    }
+</script>
+
+</body>
+</html>

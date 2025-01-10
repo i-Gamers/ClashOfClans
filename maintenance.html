@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Mode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 20px 0;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        
+        .image-container {
+            position: relative;
+            margin: 0 auto 20px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        
+        .glow-ring {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            border: 5px solid transparent;
+            border-top-color: rgba(0, 198, 255, 0.8);
+            animation: spin 4s linear infinite;
+        }
+
+        .glow-ring:nth-child(2) {
+            top: -30px;
+            left: -30px;
+            width: 360px;
+            height: 360px;
+            border-top-color: rgba(255, 99, 71, 0.8);
+            animation: spin-reverse 6s linear infinite;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            transform: scale(1.05);
+        }
+
+        
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin-reverse {
+            0% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: brightness(1.2);
+            }
+            50% {
+                filter: brightness(1.8);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) scale(0.8);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-20px) scale(1);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(0px) scale(0.8);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        
+        <div class="particle" style="width: 40px; height: 40px; top: 10%; left: 15%; animation-delay: 0s;"></div>
+        <div class="particle" style="width: 60px; height: 60px; top: 30%; left: 70%; animation-delay: 2s;"></div>
+        <div class="particle" style="width: 50px; height: 50px; top: 60%; left: 40%; animation-delay: 4s;"></div>
+        <div class="particle" style="width: 30px; height: 30px; top: 80%; left: 20%; animation-delay: 6s;"></div>
+        <div class="particle" style="width: 70px; height: 70px; top: 20%; left: 80%; animation-delay: 8s;"></div>
+    </div>
+    <div class="container">
+        <div class="image-container">
+            <div class="glow-ring"></div>
+            <div class="glow-ring"></div>
+            <img src="https://imaadh755.github.io/coc/DarkSL.png" alt="Maintenance Image">
+        </div>
+        <h1>We're Working on It</h1>
+        <p>Our website is currently under maintenance. We'll be back soon!</p>
+        <a href="https://chat.whatsapp.com/HIDDfp0lZoJ0INgiywO1vN">Join WhatsApp Group</a>
+    </div>
+</body>
+</html>

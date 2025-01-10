@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Strategies Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/strategies-admin.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4 text-center">Admin Dashboard - Strategies Editor</h1>
+
+        
+        <div class="mb-4">
+            <label for="jsonFile" class="form-label">Load Strategies File:</label>
+            <input type="file" id="jsonFile" class="form-control">
+        </div>
+		
+		<button id="saveJsonButton" class="btn btn-primary save-json-btn">
+    <i class="fas fa-save"></i> Save Strategies
+</button>
+
+
+        
+        <div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">Add New Video</h5>
+        <div class="mb-3">
+            <label for="newTHName" class="form-label">Town Hall Name:</label>
+            <select id="newTHName" class="form-select">
+                <option value="" disabled selected>Select Town Hall</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="newVideoTitle" class="form-label">Video Title:</label>
+            <input type="text" id="newVideoTitle" class="form-control" placeholder="Enter video title">
+        </div>
+        <div class="mb-3">
+            <label for="newVideoUrl" class="form-label">Video URL:</label>
+            <input type="text" id="newVideoUrl" class="form-control" placeholder="Enter video URL">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Army Links:</label>
+            <div id="newArmyLinksContainer"></div>
+            <button class="btn btn-sm btn-success mt-2" id="addNewArmyLink">Add Army Link</button>
+        </div>
+        <button class="btn btn-primary mt-3" id="addTHButton">Add Video</button>
+    </div>
+</div>
+
+
+        
+        <div id="mainContent" class="accordion"></div>
+
+        
+        <div class="text-center mt-4">
+            <button id="saveJson" class="btn btn-success">Save JSON File</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="script/strategies-admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "clanRules": {
+    "generalRules": [
+      "Give respect and take respect.",
+      "Participating in Raid Weekends is mandatory, including for secondary bases.",
+      "Playing Clan Games is mandatory but not required for secondary bases.",
+      "Elders: Must donate at least 1,000 troops before the season ends.",
+      "Leaders: Must donate at least 3,000 troops before the season ends.",
+      "Inactive players will be removed from the clan.",
+      "Promotions are based on performance.",
+      "Members who break the rules will be demoted or removed from the clan."
+    ],
+    "clanWarRules": {
+      "nonCWL": [
+        "All members must participate in wars unless excused for personal reasons.",
+        "If a player doesn’t attack in two wars in a row, they will be kicked out of the clan.",
+        "If a player gets only 2 stars in 6 attacks against the same Townhall level, they need to practice a new attack strategy.",
+        "If heroes are upgrading, players should attack lower bases and aim for 3 stars.",
+        "Missing an attack may result in the leaders deciding to remove the member from the clan."
+      ]
+    },
+    "clanWarLeagueRules": {
+      "participationAndHeroUpgrade": [
+        "Players marked as WAR OUT in their profile won't be selected for CWL.",
+        "No Hero upgrades are allowed during CWL.",
+        "Missing a CWL War will result in disqualification for the entire match."
+      ],
+      "mirrorBaseAttackAndSwapping": [
+        "Everyone should attack their mirror base. If unable, communicate with teammates to swap bases.",
+        "Swapping without agreement will result in disqualification from CWL Bonus points."
+      ],
+      "townhallAttackHierarchyAndStarAdjustments": [
+        "If a higher Townhall attacks a lower base without coordination, Leaders will deduct -1 ⭐ star from their attack score.",
+        "The lower bases can attack higher bases if their mirror is taken, and they will get +1 ⭐ Star.",
+        "CWL Bonus will be awarded for the highest stars ⭐⭐⭐ after following all the rules."
+      ]
+    }
+  }
+}

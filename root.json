@@ -1,0 +1,85 @@
+├── Admin Page\
+│   ├── Clan Rules.html
+│   ├── config.html
+│   ├── index.html
+│   ├── strategies-admin.html
+│   ├── css\
+│   │   ├── Clan Rules.css
+│   │   ├── config.css
+│   │   └── strategies-admin.css
+│   ├── script\
+│   │   ├── Clan Rules.js
+│   │   ├── config.js
+│   │   └── strategies-admin.js
+│
+├── css\
+│   ├── main.css
+│   └── strategies.css
+│
+├── img\
+│   ├── annoucement.gif
+│   ├── annoucement.png
+│   ├── announcement.jpg
+│   ├── base.gif
+│   ├── Base.jpeg
+│   ├── calculator.gif
+│   ├── Calculator.png
+│   ├── clanmembers.png
+│   ├── coccalculator.png
+│   ├── CWL.jpeg
+│   ├── freegift.png
+│   ├── gift.gif
+│   ├── Gifts.jpeg
+│   ├── guide.gif
+│   ├── last-active.jpeg
+│   ├── lastactive.gif
+│   ├── league.gif
+│   ├── members.gif
+│   ├── members.jpeg
+│   ├── old\
+│   ├── playerlastactive.png
+│   ├── Quicktips.png
+│   ├── raid.jpeg
+│   ├── Rules.jpeg
+│   ├── strategies.png
+│   ├── Th-all.png
+│   ├── th10.png
+│   ├── th11.png
+│   ├── th12.png
+│   ├── th13.png
+│   ├── th14.png
+│   ├── th15.png
+│   ├── th16.png
+│   ├── th17.png
+│   ├── tips.gif
+│   ├── tips.png
+│   ├── voucher.gif
+│   ├── voucher.png
+│   ├── War Status.gif
+│   ├── war status.png
+│   ├── War.jpeg
+│   └── warleague.png
+│
+├── js\
+│   ├── categories.json
+│   └── manifest.json
+│
+├── script\
+│   └── service-worker.js
+│
+├── UserData\
+│   ├── config.json
+│   ├── Logo.png
+│   ├── rules.json
+│   └── strategies.json
+│
+├── Clan Rules.html
+├── Clash of Clash Vouchers.html
+├── file_list.txt
+├── home.html
+├── index.html
+├── maintenance.html
+├── Player Last Active.html
+├── strategies.html
+├── Tips!.html
+└── War Troops Calculator.html

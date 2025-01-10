@@ -1,0 +1,76 @@
+
+body {
+    background-color: #121212; 
+    padding: 20px;
+    color: #E1E1E1; 
+    font-family: 'Roboto', sans-serif;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.nav-tabs .nav-link {
+    color: #B0B0B0; 
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #00FF9D; 
+    color: #121212; 
+    text-shadow: 0 0 5px rgba(0, 255, 157, 0.7);
+}
+
+.nav-tabs .nav-link:hover {
+    color: #00FF9D; 
+    background-color: #333; 
+}
+
+.tab-content {
+    margin-top: 20px;
+    background: #1F1F1F; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tab-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 255, 157, 0.6);
+}
+
+.section-heading {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #00FF9D; 
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+}
+
+.card {
+    margin-bottom: 20px;
+    background: #1F1F1F; 
+    border: 2px solid #00FF9D; 
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 157, 0.8);
+    background: #121212; 
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    color: #00FF9D; 
+}
+
+.card p {
+    color: #B0B0B0; 
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css\config.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Unified Admin Dashboard</h1>
+
+        
+        <ul class="nav nav-tabs" id="adminTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="config-tab" data-bs-toggle="tab" data-bs-target="#config" type="button" role="tab" aria-controls="config" aria-selected="true">Manage Config</button>
+            </li>
+        </ul>
+
+        
+        <div class="tab-content" id="adminTabContent">
+            
+            <div class="tab-pane fade show active" id="config" role="tabpanel" aria-labelledby="config-tab">
+                <div class="section-heading">Manage Config</div>
+
+                <div class="mb-4">
+                    <label for="configFile" class="form-label">Load Config JSON File:</label>
+                    <input type="file" id="configFile" class="form-control">
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Clan Details</h5>
+                        <div class="mb-3">
+                            <label for="clanId" class="form-label">Clan ID:</label>
+                            <input type="text" id="clanId" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">WhatsApp Group</h5>
+                        <div class="mb-3">
+                            <label for="whatsappName" class="form-label">Group Name:</label>
+                            <input type="text" id="whatsappName" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="whatsappLink" class="form-label">Group Link:</label>
+                            <input type="text" id="whatsappLink" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button id="saveConfigJson" class="btn btn-success">Save Config JSON</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<script src="script/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
