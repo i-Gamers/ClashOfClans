@@ -162,7 +162,7 @@ document.getElementById('search-input').addEventListener('input', function () {
 <script>
 // Fetch configuration and categories
 Promise.all([
-    fetch('js/config.json').then(response => response.json()), // Fetch config
+    fetch('UserData/config.json').then(response => response.json()), // Fetch config
     fetch('js/categories.json').then(response => response.json()) // Fetch categories
 ])
     .then(([config, categories]) => {
